@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extensionName__",
+  "version": "1.0.0",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
+  "author": "Romelium",
+  "homepage_url": "https://github.com/romelium/long-request-notifier",
+
+  "permissions": [
+    "webRequest",
+    "storage",
+    "notifications",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+
+  "action": {
+    "default_title": "__MSG_actionTitle__",
+    "default_popup": "options.html"
+  },
+
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self' data:;"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "long-request-notifier@romelium.cc",
+      "strict_min_version": "109.0"
+    }
+  }
+}

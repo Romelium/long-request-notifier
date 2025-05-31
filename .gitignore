@@ -1,0 +1,40 @@
+# Packaged extension files
+*.xpi
+*.zip
+
+# Build artifacts and temporary files
+/dist/
+/web-ext-artifacts/
+web-ext-config.js # If you use a custom web-ext config for signing/building
+
+# Node.js
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json # If you prefer to only commit yarn.lock or vice-versa
+# pnpm-lock.yaml # If using pnpm
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+*.swp
+*~
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Log files
+*.log
+logs/
+
+# Environment variables file (if any)
+.env
+
+# Test coverage reports
+/coverage/
+.nyc_output/

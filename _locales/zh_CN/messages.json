@@ -1,0 +1,170 @@
+{
+  "extensionName": {
+    "message": "长请求通知器",
+    "description": "扩展程序的名称。"
+  },
+  "extensionDescription": {
+    "message": "在非活动标签页中的长时间网络请求完成后，自动播放提示音并显示桌面通知。支持自定义超时阈值及域名过滤规则。",
+    "description": "扩展程序的描述。"
+  },
+  "optionsPageTitle": {
+    "message": "长请求通知器 - 设置",
+    "description": "选项页面的 HTML 标题。"
+  },
+  "optionsTitle": {
+    "message": "长请求通知器设置",
+    "description": "选项页面的主标题。"
+  },
+  "timingHeader": {
+    "message": "计时设置",
+    "description": "计时设置部分的标题。"
+  },
+  "thresholdLabel": {
+    "message": "请求耗时超过此值则播放提示音：",
+    "description": "阈值输入的标签。"
+  },
+  "secondsUnit": {
+    "message": "秒",
+    "description": "秒的单位 (更简洁)。"
+  },
+  "domainFilteringHeader": {
+    "message": "域名过滤",
+    "description": "域名过滤部分的标题。"
+  },
+  "filterModeLabel": {
+    "message": "过滤模式：",
+    "description": "过滤模式选择的标签。"
+  },
+  "monitorAllOption": {
+    "message": "监控所有域名",
+    "description": "监控所有域名的选项文本。"
+  },
+  "monitorWhitelistOption": {
+    "message": "仅监控白名单域名",
+    "description": "仅监控白名单域名的选项文本 (更简洁)。"
+  },
+  "monitorBlacklistOption": {
+    "message": "监控所有域名 (黑名单域名除外)",
+    "description": "监控除黑名单域名外的所有域名的选项文本 (更常见的排除表达方式)。"
+  },
+  "whitelistLabel": {
+    "message": "白名单域名 (每行一个或用逗号分隔)：",
+    "description": "白名单文本区域的标签。"
+  },
+  "whitelistInfo": {
+    "message": "若选择“仅监控白名单域名”，则仅监控这些域名（及其子域名）的请求。例如：<code>example.com</code> 会同时匹配 <code>example.com</code> 及 <code>api.example.com</code>。",
+    "description": "白名单的说明文字。"
+  },
+  "whitelistPlaceholder": {
+    "message": "例如：myapi.com\napi.service.net",
+    "description": "白名单文本区域的占位符。"
+  },
+  "blacklistLabel": {
+    "message": "黑名单域名 (每行一个或用逗号分隔)：",
+    "description": "黑名单文本区域的标签。"
+  },
+  "blacklistInfo": {
+    "message": "若选择“监控所有域名 (黑名单域名除外)”，则将忽略对黑名单中域名（及其子域名）的请求。例如：<code>google-analytics.com</code>",
+    "description": "黑名单的说明文字。"
+  },
+  "blacklistPlaceholder": {
+    "message": "例如：analytics.google.com\ntracking.server.net",
+    "description": "黑名单文本区域的占位符。"
+  },
+  "soundSettingsHeader": {
+    "message": "声音设置",
+    "description": "声音设置部分的标题。"
+  },
+  "volumeLabel": {
+    "message": "提示音音量：",
+    "description": "音量滑块的标签。"
+  },
+  "customSoundLabel": {
+    "message": "自定义提示音 (MP3, OGG, WAV, M4A - 最大 1MB)：",
+    "description": "自定义声音文件输入的标签 (使用“提示音”更统一)。"
+  },
+  "currentSoundText": {
+    "message": "当前提示音：",
+    "description": "指示当前声音的文本。"
+  },
+  "defaultSoundName": {
+    "message": "默认提示音",
+    "description": "默认声音的名称。"
+  },
+  "customSoundName": {
+    "message": "自定义提示音 (已上传)",
+    "description": "自定义上传声音的名称。"
+  },
+  "resetSoundButtonText": {
+    "message": "恢复默认提示音",
+    "description": "重置声音按钮的文本。"
+  },
+  "testSoundButtonText": {
+    "message": "测试提示音",
+    "description": "测试声音按钮的文本。"
+  },
+  "desktopNotificationsHeader": {
+    "message": "桌面通知",
+    "description": "桌面通知设置部分的标题。"
+  },
+  "enableOsNotificationsLabel": {
+    "message": "启用桌面通知 (系统级)",
+    "description": "用于启用/禁用操作系统桌面通知的切换开关标签。"
+  },
+  "saveButtonText": {
+    "message": "保存设置",
+    "description": "保存按钮的文本。"
+  },
+  "statusSaved": {
+    "message": "设置已保存！",
+    "description": "设置保存时的状态消息。"
+  },
+  "statusSoundUploaded": {
+    "message": "自定义提示音已上传并保存！",
+    "description": "自定义声音上传时的状态消息。"
+  },
+  "statusSoundReset": {
+    "message": "提示音已恢复为默认。",
+    "description": "声音重置时的状态消息。"
+  },
+  "statusErrorSaving": {
+    "message": "保存失败：$message$",
+    "description": "保存设置错误时的状态消息。占位符 $1 为错误信息。",
+    "placeholders": {
+      "message": { "content": "$1" }
+    }
+  },
+  "statusInvalidThreshold": {
+    "message": "错误：请输入有效的超时阈值 (数字 >= 1)。",
+    "description": "无效阈值的状态消息。"
+  },
+  "statusSoundFileErrorTooLarge": {
+    "message": "错误：提示音文件过大 (最大 $maxSize$MB)。",
+    "description": "声音文件过大的错误消息。占位符 $1 为最大大小。",
+    "placeholders": { "maxSize": { "content": "$1" } }
+  },
+  "statusSoundFileErrorInvalidType": {
+    "message": "错误：提示音文件类型无效，请使用 MP3, OGG, WAV, 或 M4A。",
+    "description": "无效声音文件类型的错误消息。"
+  },
+  "statusSoundFileErrorReading": {
+    "message": "错误：无法读取提示音文件。",
+    "description": "文件读取器失败时的错误消息。"
+  },
+  "notificationTitle": {
+    "message": "耗时请求已完成！",
+    "description": "桌面通知的标题 (更通用)。"
+  },
+  "notificationMessage": {
+    "message": "访问 $hostname$ 的请求 (耗时 $duration$秒) 已处理完毕。",
+    "description": "桌面通知的消息。占位符：$1 = 主机名, $2 = 持续时间。",
+    "placeholders": {
+      "hostname": { "content": "$1", "example": "example.com" },
+      "duration": { "content": "$2", "example": "15.32" }
+    }
+  },
+  "actionTitle": {
+    "message": "长请求通知器 - 设置",
+    "description": "浏览器操作按钮的默认标题。"
+  }
+}

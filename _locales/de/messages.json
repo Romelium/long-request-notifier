@@ -1,0 +1,169 @@
+{
+  "extensionName": {
+    "message": "Benachrichtiger für lange Anfragen",
+    "description": "Name der Erweiterung."
+  },
+  "extensionDescription": {
+    "message": "Spielt einen Ton ab und zeigt eine Benachrichtigung, wenn eine langwierige Netzwerkanfrage in einem inaktiven Tab abgeschlossen wird. Schwellenwert und Domainfilter sind anpassbar.",
+    "description": "Beschreibung der Erweiterung."
+  },
+  "optionsPageTitle": {
+    "message": "Benachrichtiger für lange Anfragen - Einstellungen",
+    "description": "HTML-Titel für die Optionsseite."
+  },
+  "optionsTitle": {
+    "message": "Einstellungen für den Benachrichtiger langer Anfragen",
+    "description": "Hauptüberschrift für die Optionsseite."
+  },
+  "timingHeader": {
+    "message": "Zeitsteuerung",
+    "description": "Überschrift für den Abschnitt Zeitsteuerungseinstellungen."
+  },
+  "thresholdLabel": {
+    "message": "Benachrichtigungston für Anfragen, die länger als ... dauern:",
+    "description": "Beschriftung für die Schwellenwerteingabe."
+  },
+  "secondsUnit": {
+    "message": "Sek.",
+    "description": "Einheit für Sekunden (Abkürzung für UI)."
+  },
+  "domainFilteringHeader": {
+    "message": "Domainfilter",
+    "description": "Überschrift für den Abschnitt Domain-Filterung (kompakter)."
+  },
+  "filterModeLabel": {
+    "message": "Filtermodus:",
+    "description": "Beschriftung für die Filtermodusauswahl."
+  },
+  "monitorAllOption": {
+    "message": "Alle Domains überwachen",
+    "description": "Optionstext zum Überwachen aller Domains."
+  },
+  "monitorWhitelistOption": {
+    "message": "Nur Whitelist-Domains überwachen",
+    "description": "Optionstext zum Überwachen nur von Domains auf der Whitelist."
+  },
+  "monitorBlacklistOption": {
+    "message": "Alle Domains überwachen (außer Blacklist-Domains)",
+    "description": "Optionstext zum Überwachen aller außer Domains auf der Blacklist (üblichere Ausschlussformulierung)."
+  },
+  "whitelistLabel": {
+    "message": "Whitelist-Domains (eine pro Zeile oder durch Komma getrennt):",
+    "description": "Beschriftung für das Whitelist-Textfeld."
+  },
+  "whitelistInfo": {
+    "message": "Wenn 'Nur Whitelist-Domains überwachen' ausgewählt ist, werden nur Anfragen an diese Domains (und deren Subdomains) überwacht. Z. B.: <code>example.com</code> entspricht <code>example.com</code> und <code>api.example.com</code>.",
+    "description": "Informationstext für die Whitelist. 'entspricht' statt 'passt auf'."
+  },
+  "whitelistPlaceholder": {
+    "message": "z. B.: meineapi.com\napi.dienst.net",
+    "description": "Platzhalter für das Whitelist-Textfeld."
+  },
+  "blacklistLabel": {
+    "message": "Blacklist-Domains (eine pro Zeile oder durch Komma getrennt):",
+    "description": "Beschriftung für das Blacklist-Textfeld."
+  },
+  "blacklistInfo": {
+    "message": "Wenn 'Alle Domains überwachen (außer Blacklist-Domains)' ausgewählt ist, werden Anfragen an diese Domains (und deren Subdomains) ignoriert. Z. B.: <code>google-analytics.com</code>",
+    "description": "Informationstext für die Blacklist."
+  },
+  "blacklistPlaceholder": {
+    "message": "z. B.: tracking.com\nanalytics.server.net",
+    "description": "Platzhalter für das Blacklist-Textfeld."
+  },
+  "soundSettingsHeader": {
+    "message": "Toneinstellungen",
+    "description": "Überschrift für den Abschnitt Toneinstellungen."
+  },
+  "volumeLabel": {
+    "message": "Lautstärke des Benachrichtigungstons:",
+    "description": "Beschriftung für den Lautstärkeregler."
+  },
+  "customSoundLabel": {
+    "message": "Eigener Benachrichtigungston (MP3, OGG, WAV, M4A - max. 1MB):",
+    "description": "Beschriftung für die Eingabe der benutzerdefinierten Sounddatei. 'Eigener' für 'custom'."
+  },
+  "currentSoundText": {
+    "message": "Aktueller Benachrichtigungston:",
+    "description": "Text, der den aktuellen Ton anzeigt."
+  },
+  "defaultSoundName": {
+    "message": "Standardton",
+    "description": "Name für den Standardton."
+  },
+  "customSoundName": {
+    "message": "Eigener Ton (hochgeladen)",
+    "description": "Name für einen benutzerdefinierten, hochgeladenen Ton."
+  },
+  "resetSoundButtonText": {
+    "message": "Standardton verwenden",
+    "description": "Text für den Button zum Zurücksetzen des Tons (aktionsorientierter)."
+  },
+  "testSoundButtonText": {
+    "message": "Benachrichtigungston testen",
+    "description": "Text für den Button zum Testen des Tons."
+  },
+  "desktopNotificationsHeader": {
+    "message": "Desktop-Benachrichtigungen",
+    "description": "Überschrift für den Abschnitt Einstellungen für Desktop-Benachrichtigungen."
+  },
+  "enableOsNotificationsLabel": {
+    "message": "Desktop-Benachrichtigungen aktivieren (Betriebssystemebene)",
+    "description": "Beschriftung für den Schalter zum Aktivieren/Deaktivieren von Desktop-Benachrichtigungen des Betriebssystems."
+  },
+  "saveButtonText": {
+    "message": "Einstellungen speichern",
+    "description": "Text für den Speicherbutton."
+  },
+  "statusSaved": {
+    "message": "Einstellungen gespeichert!",
+    "description": "Statusmeldung, wenn Einstellungen gespeichert werden."
+  },
+  "statusSoundUploaded": {
+    "message": "Eigener Ton hochgeladen und gespeichert!",
+    "description": "Statusmeldung, wenn ein benutzerdefinierter Ton hochgeladen wird."
+  },
+  "statusSoundReset": {
+    "message": "Benachrichtigungston auf Standard zurückgesetzt.",
+    "description": "Statusmeldung, wenn der Ton zurückgesetzt wird."
+  },
+  "statusErrorSaving": {
+    "message": "Fehler beim Speichern: $message$",
+    "description": "Statusmeldung bei Fehler beim Speichern der Einstellungen. Platzhalter $1 für Fehlermeldung.",
+    "placeholders": {
+      "message": { "content": "$1" }
+    }
+  },
+  "statusInvalidThreshold": {
+    "message": "Fehler: Bitte geben Sie eine gültige Zahl (>= 1) für den Schwellenwert ein.",
+    "description": "Statusmeldung für ungültigen Schwellenwert."
+  },
+  "statusSoundFileErrorTooLarge": {
+    "message": "Fehler: Die Tondatei ist zu groß (max. $maxSize$MB).",
+    "description": "Fehlermeldung für zu große Tondatei. Platzhalter $1 für maximale Größe."
+  },
+  "statusSoundFileErrorInvalidType": {
+    "message": "Fehler: Ungültiger Dateityp für Benachrichtigungston. Bitte verwenden Sie MP3, OGG, WAV oder M4A.",
+    "description": "Fehlermeldung für ungültigen Tondateityp."
+  },
+  "statusSoundFileErrorReading": {
+    "message": "Fehler: Die Benachrichtigungstondatei konnte nicht gelesen werden.",
+    "description": "Fehlermeldung, wenn das Lesen der Datei fehlschlägt."
+  },
+  "notificationTitle": {
+    "message": "Langwierige Anfrage abgeschlossen!",
+    "description": "Titel der Desktop-Benachrichtigung."
+  },
+  "notificationMessage": {
+    "message": "Die Anfrage an $hostname$ (Dauer: $duration$ Sek.) wurde abgeschlossen.",
+    "description": "Nachricht der Desktop-Benachrichtigung. Platzhalter: $1 = Hostname, $2 = Dauer."
+  },
+  "placeholders": {
+    "hostname": { "content": "$1", "example": "example.com" },
+    "duration": { "content": "$2", "example": "15.32" }
+  },
+  "actionTitle": {
+    "message": "Benachrichtiger für lange Anfragen - Einstellungen",
+    "description": "Standardtitel für den Aktionsbutton des Browsers."
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "extensionName": {
+    "message": "Long Request Notifier",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Plays a sound and shows a notification when a long network request completes on an inactive tab. Customizable threshold and domain filtering.",
+    "description": "Description of the extension."
+  },
+  "optionsPageTitle": {
+    "message": "Long Request Notifier Settings",
+    "description": "HTML Title for the options page."
+  },
+  "optionsTitle": {
+    "message": "Long Request Notifier Settings",
+    "description": "Main heading for the options page."
+  },
+  "timingHeader": {
+    "message": "Timing",
+    "description": "Header for the timing settings section."
+  },
+  "thresholdLabel": {
+    "message": "Play sound for requests longer than:",
+    "description": "Label for threshold input."
+  },
+  "secondsUnit": {
+    "message": "seconds.",
+    "description": "Unit for seconds."
+  },
+  "domainFilteringHeader": {
+    "message": "Domain Filtering",
+    "description": "Header for the domain filtering section."
+  },
+  "filterModeLabel": {
+    "message": "Filter Mode:",
+    "description": "Label for filter mode selection."
+  },
+  "monitorAllOption": {
+    "message": "Monitor All Domains",
+    "description": "Option text for monitoring all domains."
+  },
+  "monitorWhitelistOption": {
+    "message": "Monitor Whitelisted Domains Only",
+    "description": "Option text for monitoring only whitelisted domains."
+  },
+  "monitorBlacklistOption": {
+    "message": "Monitor All Except Blacklisted Domains",
+    "description": "Option text for monitoring all except blacklisted domains."
+  },
+  "whitelistLabel": {
+    "message": "Whitelist Domains (one per line or comma-separated):",
+    "description": "Label for whitelist textarea."
+  },
+  "whitelistInfo": {
+    "message": "If 'Monitor Whitelisted Domains Only' is selected, only requests to these domains (and their subdomains) will be monitored. E.g., <code>example.com</code> will match <code>example.com</code> and <code>api.example.com</code>.",
+    "description": "Informational text for whitelist."
+  },
+  "whitelistPlaceholder": {
+    "message": "e.g., myapi.com\nspecific.service.net",
+    "description": "Placeholder for whitelist textarea."
+  },
+  "blacklistLabel": {
+    "message": "Blacklist Domains (one per line or comma-separated):",
+    "description": "Label for blacklist textarea."
+  },
+  "blacklistInfo": {
+    "message": "If 'Monitor All Except Blacklisted Domains' is selected, requests to these domains (and their subdomains) will be ignored. E.g., <code>google-analytics.com</code>",
+    "description": "Informational text for blacklist."
+  },
+  "blacklistPlaceholder": {
+    "message": "e.g., tracking.com\nads.server.net",
+    "description": "Placeholder for blacklist textarea."
+  },
+  "soundSettingsHeader": {
+    "message": "Sound Settings",
+    "description": "Header for the sound settings section."
+  },
+  "volumeLabel": {
+    "message": "Notification Volume:",
+    "description": "Label for volume slider."
+  },
+  "customSoundLabel": {
+    "message": "Custom Notification Sound (MP3, OGG, WAV, M4A - max 1MB):",
+    "description": "Label for custom sound file input."
+  },
+  "currentSoundText": {
+    "message": "Current sound:",
+    "description": "Text indicating the current sound."
+  },
+  "defaultSoundName": {
+    "message": "Default",
+    "description": "Name for the default sound."
+  },
+  "customSoundName": {
+    "message": "Custom Sound (uploaded)",
+    "description": "Name for a custom uploaded sound."
+  },
+  "resetSoundButtonText": {
+    "message": "Reset to Default Sound",
+    "description": "Text for the reset sound button."
+  },
+  "testSoundButtonText": {
+    "message": "Test Sound",
+    "description": "Text for the test sound button."
+  },
+  "desktopNotificationsHeader": {
+    "message": "Desktop Notifications",
+    "description": "Header for the desktop notifications settings section."
+  },
+  "enableOsNotificationsLabel": {
+    "message": "Enable desktop notifications (OS level)",
+    "description": "Label for the toggle to enable/disable OS desktop notifications."
+  },
+  "saveButtonText": {
+    "message": "Save Settings",
+    "description": "Text for the save button."
+  },
+  "statusSaved": {
+    "message": "Settings saved!",
+    "description": "Status message when settings are saved."
+  },
+  "statusSoundUploaded": {
+    "message": "Custom sound uploaded and saved!",
+    "description": "Status message when custom sound is uploaded."
+  },
+  "statusSoundReset": {
+    "message": "Sound reset to default.",
+    "description": "Status message when sound is reset."
+  },
+  "statusErrorSaving": {
+    "message": "Error saving: $message$",
+    "description": "Status message when error saving settings. Placeholder $1 for error message.",
+    "placeholders": {
+      "message": { "content": "$1" }
+    }
+  },
+  "statusInvalidThreshold": {
+    "message": "Error: Please enter a valid number (>= 1) for the threshold.",
+    "description": "Status message for invalid threshold."
+  },
+  "statusSoundFileErrorTooLarge": {
+    "message": "Error: Sound file is too large (max $maxSize$MB).",
+    "description": "Error message for sound file too large. Placeholder $1 for max size.",
+    "placeholders": { "maxSize": { "content": "$1" } }
+  },
+  "statusSoundFileErrorInvalidType": {
+    "message": "Error: Invalid sound file type. Please use MP3, OGG, WAV, or M4A.",
+    "description": "Error message for invalid sound file type."
+  },
+  "statusSoundFileErrorReading": {
+    "message": "Error: Could not read the sound file.",
+    "description": "Error message when file reader fails."
+  },
+  "notificationTitle": {
+    "message": "Long Request Complete!",
+    "description": "Title of the desktop notification."
+  },
+  "notificationMessage": {
+    "message": "Request to $hostname$ ($duration$s) is complete.",
+    "description": "Message of the desktop notification. Placeholders: $1 = hostname, $2 = duration.",
+    "placeholders": {
+      "hostname": { "content": "$1", "example": "example.com" },
+      "duration": { "content": "$2", "example": "15.32" }
+    }
+  },
+  "actionTitle": {
+    "message": "Long Request Notifier Settings",
+    "description": "Default title for the browser action button."
+  }
+}

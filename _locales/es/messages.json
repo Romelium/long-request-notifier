@@ -1,0 +1,170 @@
+{
+  "extensionName": {
+    "message": "Notificador de Solicitudes Largas",
+    "description": "Nombre de la extensión."
+  },
+  "extensionDescription": {
+    "message": "Reproduce un sonido y muestra una notificación cuando una solicitud de red larga se completa en una pestaña inactiva. Umbral y filtrado de dominios personalizables.",
+    "description": "Descripción de la extensión."
+  },
+  "optionsPageTitle": {
+    "message": "Notificador de Solicitudes Largas - Configuración",
+    "description": "Título HTML para la página de opciones."
+  },
+  "optionsTitle": {
+    "message": "Configuración del Notificador de Solicitudes Largas",
+    "description": "Encabezado principal para la página de opciones."
+  },
+  "timingHeader": {
+    "message": "Temporización",
+    "description": "Encabezado para la sección de configuración de temporización."
+  },
+  "thresholdLabel": {
+    "message": "Reproducir sonido para solicitudes más largas de:",
+    "description": "Etiqueta para la entrada de umbral."
+  },
+  "secondsUnit": {
+    "message": "segundos.",
+    "description": "Unidad para segundos."
+  },
+  "domainFilteringHeader": {
+    "message": "Filtrado de Dominios",
+    "description": "Encabezado para la sección de filtrado de dominios."
+  },
+  "filterModeLabel": {
+    "message": "Modo de Filtro:",
+    "description": "Etiqueta para la selección del modo de filtro."
+  },
+  "monitorAllOption": {
+    "message": "Monitorear Todos los Dominios",
+    "description": "Texto de opción para monitorear todos los dominios."
+  },
+  "monitorWhitelistOption": {
+    "message": "Monitorear Solo Dominios en Lista Blanca",
+    "description": "Texto de opción para monitorear solo dominios en lista blanca."
+  },
+  "monitorBlacklistOption": {
+    "message": "Monitorear Todos Excepto Dominios en Lista Negra",
+    "description": "Texto de opción para monitorear todos excepto dominios en lista negra."
+  },
+  "whitelistLabel": {
+    "message": "Dominios en Lista Blanca (uno por línea o separados por coma):",
+    "description": "Etiqueta para el área de texto de la lista blanca."
+  },
+  "whitelistInfo": {
+    "message": "Si se selecciona 'Monitorear Solo Dominios en Lista Blanca', solo se monitorearán las solicitudes a estos dominios (y sus subdominios). Ej.: <code>example.com</code> coincidirá con <code>example.com</code> y <code>api.example.com</code>.",
+    "description": "Texto informativo para la lista blanca."
+  },
+  "whitelistPlaceholder": {
+    "message": "ej.: miapi.com\nservicio.especifico.net",
+    "description": "Placeholder para el área de texto de la lista blanca."
+  },
+  "blacklistLabel": {
+    "message": "Dominios en Lista Negra (uno por línea o separados por coma):",
+    "description": "Etiqueta para el área de texto de la lista negra."
+  },
+  "blacklistInfo": {
+    "message": "Si se selecciona 'Monitorear Todos Excepto Dominios en Lista Negra', se ignorarán las solicitudes a estos dominios (y sus subdominios). Ej.: <code>google-analytics.com</code>",
+    "description": "Texto informativo para la lista negra."
+  },
+  "blacklistPlaceholder": {
+    "message": "ej.: rastreo.com\nservidor.anuncios.net",
+    "description": "Placeholder para el área de texto de la lista negra."
+  },
+  "soundSettingsHeader": {
+    "message": "Configuración de Sonido",
+    "description": "Encabezado para la sección de configuración de sonido."
+  },
+  "volumeLabel": {
+    "message": "Volumen de Notificación:",
+    "description": "Etiqueta para el control deslizante de volumen."
+  },
+  "customSoundLabel": {
+    "message": "Sonido de Notificación Personalizado (MP3, OGG, WAV, M4A - máx. 1MB):",
+    "description": "Etiqueta para la entrada de archivo de sonido personalizado."
+  },
+  "currentSoundText": {
+    "message": "Sonido actual:",
+    "description": "Texto que indica el sonido actual."
+  },
+  "defaultSoundName": {
+    "message": "Predeterminado",
+    "description": "Nombre para el sonido predeterminado."
+  },
+  "customSoundName": {
+    "message": "Sonido Personalizado (subido)",
+    "description": "Nombre para un sonido personalizado subido."
+  },
+  "resetSoundButtonText": {
+    "message": "Restablecer Sonido Predeterminado",
+    "description": "Texto para el botón de restablecer sonido."
+  },
+  "testSoundButtonText": {
+    "message": "Probar Sonido",
+    "description": "Texto para el botón de probar sonido."
+  },
+  "desktopNotificationsHeader": {
+    "message": "Notificaciones de Escritorio",
+    "description": "Encabezado para la sección de configuración de notificaciones de escritorio."
+  },
+  "enableOsNotificationsLabel": {
+    "message": "Habilitar notificaciones de escritorio (nivel SO)",
+    "description": "Etiqueta para el interruptor que habilita/deshabilita las notificaciones de escritorio del SO."
+  },
+  "saveButtonText": {
+    "message": "Guardar Configuración",
+    "description": "Texto para el botón de guardar."
+  },
+  "statusSaved": {
+    "message": "¡Configuración guardada!",
+    "description": "Mensaje de estado cuando se guarda la configuración."
+  },
+  "statusSoundUploaded": {
+    "message": "¡Sonido personalizado subido y guardado!",
+    "description": "Mensaje de estado cuando se sube un sonido personalizado."
+  },
+  "statusSoundReset": {
+    "message": "Sonido restablecido al predeterminado.",
+    "description": "Mensaje de estado cuando se restablece el sonido."
+  },
+  "statusErrorSaving": {
+    "message": "Error al guardar: $message$",
+    "description": "Mensaje de estado cuando hay un error al guardar la configuración. Placeholder $1 para el mensaje de error.",
+    "placeholders": {
+      "message": { "content": "$1" }
+    }
+  },
+  "statusInvalidThreshold": {
+    "message": "Error: Por favor, ingrese un número válido (>= 1) para el umbral.",
+    "description": "Mensaje de estado para umbral inválido."
+  },
+  "statusSoundFileErrorTooLarge": {
+    "message": "Error: El archivo de sonido es demasiado grande (máx. $maxSize$MB).",
+    "description": "Mensaje de error para archivo de sonido demasiado grande. Placeholder $1 para el tamaño máximo.",
+    "placeholders": { "maxSize": { "content": "$1" } }
+  },
+  "statusSoundFileErrorInvalidType": {
+    "message": "Error: Tipo de archivo de sonido no válido. Por favor, use MP3, OGG, WAV o M4A.",
+    "description": "Mensaje de error para tipo de archivo de sonido no válido."
+  },
+  "statusSoundFileErrorReading": {
+    "message": "Error: No se pudo leer el archivo de sonido.",
+    "description": "Mensaje de error cuando falla el lector de archivos."
+  },
+  "notificationTitle": {
+    "message": "¡Solicitud Larga Completada!",
+    "description": "Título de la notificación de escritorio."
+  },
+  "notificationMessage": {
+    "message": "La solicitud a $hostname$ ($duration$s) ha finalizado.",
+    "description": "Mensaje de la notificación de escritorio. Placeholders: $1 = hostname, $2 = duración.",
+    "placeholders": {
+      "hostname": { "content": "$1", "example": "example.com" },
+      "duration": { "content": "$2", "example": "15.32" }
+    }
+  },
+  "actionTitle": {
+    "message": "Notificador de Solicitudes Largas - Configuración",
+    "description": "Título predeterminado para el botón de acción del navegador."
+  }
+}

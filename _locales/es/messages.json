@@ -141,7 +141,9 @@
   "statusSoundFileErrorTooLarge": {
     "message": "Error: El archivo de sonido es demasiado grande (máx. $maxSize$MB).",
     "description": "Mensaje de error para archivo de sonido demasiado grande. Placeholder $1 para el tamaño máximo.",
-    "placeholders": { "maxSize": { "content": "$1" } }
+    "placeholders": {
+       "maxSize": { "content": "$1" }
+    }
   },
   "statusSoundFileErrorInvalidType": {
     "message": "Error: Tipo de archivo de sonido no válido. Por favor, use MP3, OGG, WAV o M4A.",

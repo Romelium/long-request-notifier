@@ -27,20 +27,46 @@ const DEFAULT_SETTINGS = {
     showOsNotifications: false
 };
 
+// --- I18N Helper ---
 function localizeHtmlPage() {
+    // Localize static text content
     document.querySelectorAll('[data-i18n-content]').forEach(element => {
         element.textContent = browser.i18n.getMessage(element.getAttribute('data-i18n-content'));
     });
+
+    // Localize content with HTML (like info paragraphs with <code> tags)
+    // by manually parsing and constructing DOM elements to avoid innerHTML.
     document.querySelectorAll('[data-i18n-html]').forEach(element => {
-        element.innerHTML = browser.i18n.getMessage(element.getAttribute('data-i18n-html'));
+        const messageString = browser.i18n.getMessage(element.getAttribute('data-i18n-html'));
+        element.innerHTML = ''; // Clear existing content
+
+        // Regex to find <code>...</code> tags and capture content inside and outside
+        // It splits the string into parts: text, code_content, text, code_content, ...
+        const parts = messageString.split(/<code>(.*?)<\/code>/g);
+
+        parts.forEach((part, index) => {
+            if (index % 2 === 1) { // Content inside <code> tags
+                const codeElement = document.createElement('code');
+                codeElement.textContent = part;
+                element.appendChild(codeElement);
+            } else { // Plain text part
+                if (part) { // Avoid appending empty text nodes
+                    element.appendChild(document.createTextNode(part));
+                }
+            }
+        });
     });
+
+    // Localize placeholder attributes
     document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
         element.placeholder = browser.i18n.getMessage(element.getAttribute('data-i18n-placeholder'));
     });
+    // Localize title attribute
     document.querySelectorAll('[data-i18n-title]').forEach(element => {
         element.title = browser.i18n.getMessage(element.getAttribute('data-i18n-title'));
     });
 }
+
 
 function domainsTextareaToStorageString(domainsString) {
     if (!domainsString) return "";

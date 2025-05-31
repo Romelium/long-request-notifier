@@ -141,7 +141,9 @@
   "statusSoundFileErrorTooLarge": {
     "message": "错误：提示音文件过大 (最大 $maxSize$MB)。",
     "description": "声音文件过大的错误消息。占位符 $1 为最大大小。",
-    "placeholders": { "maxSize": { "content": "$1" } }
+    "placeholders": {
+       "maxSize": { "content": "$1" }
+    }
   },
   "statusSoundFileErrorInvalidType": {
     "message": "错误：提示音文件类型无效，请使用 MP3, OGG, WAV, 或 M4A。",

@@ -140,7 +140,10 @@
   },
   "statusSoundFileErrorTooLarge": {
     "message": "Fehler: Die Tondatei ist zu groß (max. $maxSize$MB).",
-    "description": "Fehlermeldung für zu große Tondatei. Platzhalter $1 für maximale Größe."
+    "description": "Fehlermeldung für zu große Tondatei. Platzhalter $1 für maximale Größe.",
+    "placeholders": {
+       "maxSize": { "content": "$1" }
+    }
   },
   "statusSoundFileErrorInvalidType": {
     "message": "Fehler: Ungültiger Dateityp für Benachrichtigungston. Bitte verwenden Sie MP3, OGG, WAV oder M4A.",
@@ -156,11 +159,11 @@
   },
   "notificationMessage": {
     "message": "Die Anfrage an $hostname$ (Dauer: $duration$ Sek.) wurde abgeschlossen.",
-    "description": "Nachricht der Desktop-Benachrichtigung. Platzhalter: $1 = Hostname, $2 = Dauer."
-  },
-  "placeholders": {
-    "hostname": { "content": "$1", "example": "example.com" },
-    "duration": { "content": "$2", "example": "15.32" }
+    "description": "Nachricht der Desktop-Benachrichtigung. Platzhalter: $1 = Hostname, $2 = Dauer.",
+    "placeholders": {
+      "hostname": { "content": "$1", "example": "example.com" },
+      "duration": { "content": "$2", "example": "15.32" }
+    }
   },
   "actionTitle": {
     "message": "Benachrichtiger für lange Anfragen - Einstellungen",

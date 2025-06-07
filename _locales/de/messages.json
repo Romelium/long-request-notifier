@@ -48,28 +48,28 @@
     "description": "Optionstext zum Überwachen aller außer Domains auf der Blacklist (üblichere Ausschlussformulierung)."
   },
   "whitelistLabel": {
-    "message": "Whitelist-Domains (eine pro Zeile oder durch Komma getrennt):",
+    "message": "Whitelist-Muster (Reguläre Ausdrücke, einer pro Zeile):",
     "description": "Beschriftung für das Whitelist-Textfeld."
   },
   "whitelistInfo": {
-    "message": "Wenn 'Nur Whitelist-Domains überwachen' ausgewählt ist, werden nur Anfragen an diese Domains (und deren Subdomains) überwacht. Z. B.: <code>example.com</code> entspricht <code>example.com</code> und <code>api.example.com</code>.",
-    "description": "Informationstext für die Whitelist. 'entspricht' statt 'passt auf'."
+    "message": "Wenn 'Nur Whitelist-Domains überwachen' ausgewählt ist, werden Anfragen überwacht, deren Hostname auf eines der unten stehenden regulären Ausdrücke passt (einer pro Zeile, Groß-/Kleinschreibung wird ignoriert). Z.B.: <code>example\\.com</code> passt auf Hostnamen, die 'example.com' enthalten.",
+    "description": "Informationstext für die Whitelist, der die Verwendung von regulären Ausdrücken erklärt."
   },
   "whitelistPlaceholder": {
-    "message": "z. B.: meineapi.com\napi.dienst.net",
-    "description": "Platzhalter für das Whitelist-Textfeld."
+    "message": "z. B.: meineapi\\.com\n.*\\.dienst\\.net$",
+    "description": "Platzhalter für das Whitelist-Textfeld mit Regex-Beispielen."
   },
   "blacklistLabel": {
-    "message": "Blacklist-Domains (eine pro Zeile oder durch Komma getrennt):",
+    "message": "Blacklist-Muster (Reguläre Ausdrücke, einer pro Zeile):",
     "description": "Beschriftung für das Blacklist-Textfeld."
   },
   "blacklistInfo": {
-    "message": "Wenn 'Alle Domains überwachen (außer Blacklist-Domains)' ausgewählt ist, werden Anfragen an diese Domains (und deren Subdomains) ignoriert. Z. B.: <code>google-analytics.com</code>",
-    "description": "Informationstext für die Blacklist."
+    "message": "Wenn 'Alle Domains überwachen (außer Blacklist-Domains)' ausgewählt ist, werden Anfragen ignoriert, deren Hostname auf eines der unten stehenden regulären Ausdrücke passt (einer pro Zeile, Groß-/Kleinschreibung wird ignoriert). Z.B.: <code>google-analytics\\.com</code>",
+    "description": "Informationstext für die Blacklist, der die Verwendung von regulären Ausdrücken erklärt."
   },
   "blacklistPlaceholder": {
-    "message": "z. B.: tracking.com\nanalytics.server.net",
-    "description": "Platzhalter für das Blacklist-Textfeld."
+    "message": "z. B.: tracking\\.com\nanalytics\\.server\\.net",
+    "description": "Platzhalter für das Blacklist-Textfeld mit Regex-Beispielen."
   },
   "soundSettingsHeader": {
     "message": "Toneinstellungen",

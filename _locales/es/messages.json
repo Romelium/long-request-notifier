@@ -48,28 +48,28 @@
     "description": "Texto de opción para monitorear todos excepto dominios en lista negra."
   },
   "whitelistLabel": {
-    "message": "Dominios en Lista Blanca (uno por línea o separados por coma):",
+    "message": "Patrones de Lista Blanca (RegEx, uno por línea):",
     "description": "Etiqueta para el área de texto de la lista blanca."
   },
   "whitelistInfo": {
-    "message": "Si se selecciona 'Monitorear Solo Dominios en Lista Blanca', solo se monitorearán las solicitudes a estos dominios (y sus subdominios). Ej.: <code>example.com</code> coincidirá con <code>example.com</code> y <code>api.example.com</code>.",
-    "description": "Texto informativo para la lista blanca."
+    "message": "Si se selecciona 'Monitorear Solo Dominios en Lista Blanca', se monitorearán las solicitudes cuyo hostname coincida con cualquiera de los patrones de Expresiones Regulares a continuación (uno por línea, no distingue mayúsculas/minúsculas). Ej.: <code>example\\.com</code> coincidirá con hostnames que contengan 'example.com'.",
+    "description": "Texto informativo para la lista blanca explicando el uso de RegEx."
   },
   "whitelistPlaceholder": {
-    "message": "ej.: miapi.com\nservicio.especifico.net",
-    "description": "Placeholder para el área de texto de la lista blanca."
+    "message": "ej.: miapi\\.com\n.*\\.servicio\\.especifico\\.net$",
+    "description": "Placeholder para el área de texto de la lista blanca con ejemplos de RegEx."
   },
   "blacklistLabel": {
-    "message": "Dominios en Lista Negra (uno por línea o separados por coma):",
+    "message": "Patrones de Lista Negra (RegEx, uno por línea):",
     "description": "Etiqueta para el área de texto de la lista negra."
   },
   "blacklistInfo": {
-    "message": "Si se selecciona 'Monitorear Todos Excepto Dominios en Lista Negra', se ignorarán las solicitudes a estos dominios (y sus subdominios). Ej.: <code>google-analytics.com</code>",
-    "description": "Texto informativo para la lista negra."
+    "message": "Si se selecciona 'Monitorear Todos Excepto Dominios en Lista Negra', se ignorarán las solicitudes cuyo hostname coincida con cualquiera de los patrones de Expresiones Regulares a continuación (uno por línea, no distingue mayúsculas/minúsculas). Ej.: <code>google-analytics\\.com</code>",
+    "description": "Texto informativo para la lista negra explicando el uso de RegEx."
   },
   "blacklistPlaceholder": {
-    "message": "ej.: rastreo.com\nservidor.anuncios.net",
-    "description": "Placeholder para el área de texto de la lista negra."
+    "message": "ej.: rastreo\\.com\nservidor\\.anuncios\\.net",
+    "description": "Placeholder para el área de texto de la lista negra con ejemplos de RegEx."
   },
   "soundSettingsHeader": {
     "message": "Configuración de Sonido",

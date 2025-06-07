@@ -16,6 +16,7 @@ const MAX_SOUND_FILE_SIZE_MB = 1;
 const MAX_SOUND_FILE_SIZE_BYTES = MAX_SOUND_FILE_SIZE_MB * 1024 * 1024;
 const ALLOWED_SOUND_TYPES = ['audio/mpeg', 'audio/ogg', 'audio/wav', 'audio/x-wav', 'audio/aac', 'audio/mp4'];
 
+// These defaults must be identical to the ones in background.js
 const DEFAULT_SETTINGS = {
     longRequestThreshold: 10,
     domainFilterMode: "all",
@@ -29,53 +30,42 @@ const DEFAULT_SETTINGS = {
 
 // --- I18N Helper ---
 function localizeHtmlPage() {
-    // Localize static text content
     document.querySelectorAll('[data-i18n-content]').forEach(element => {
         element.textContent = browser.i18n.getMessage(element.getAttribute('data-i18n-content'));
     });
-
-    // Localize content with HTML (like info paragraphs with <code> tags)
-    // by manually parsing and constructing DOM elements to avoid innerHTML.
     document.querySelectorAll('[data-i18n-html]').forEach(element => {
         const messageString = browser.i18n.getMessage(element.getAttribute('data-i18n-html'));
         element.innerHTML = ''; // Clear existing content
-
-        // Regex to find <code>...</code> tags and capture content inside and outside
-        // It splits the string into parts: text, code_content, text, code_content, ...
         const parts = messageString.split(/<code>(.*?)<\/code>/g);
-
         parts.forEach((part, index) => {
-            if (index % 2 === 1) { // Content inside <code> tags
+            if (index % 2 === 1) {
                 const codeElement = document.createElement('code');
                 codeElement.textContent = part;
                 element.appendChild(codeElement);
-            } else { // Plain text part
-                if (part) { // Avoid appending empty text nodes
+            } else {
+                if (part) {
                     element.appendChild(document.createTextNode(part));
                 }
             }
         });
     });
-
-    // Localize placeholder attributes
     document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
         element.placeholder = browser.i18n.getMessage(element.getAttribute('data-i18n-placeholder'));
     });
-    // Localize title attribute
     document.querySelectorAll('[data-i18n-title]').forEach(element => {
         element.title = browser.i18n.getMessage(element.getAttribute('data-i18n-title'));
     });
 }
 
-
+// Cleans up the textarea content and returns a standardized, newline-separated string for storage.
 function domainsTextareaToStorageString(domainsString) {
     if (!domainsString) return "";
-    return domainsString.split(/[\n,]+/).map(d => d.trim()).filter(d => d.length > 0).join(',');
+    return domainsString.split(/\r?\n/).map(d => d.trim()).filter(d => d.length > 0).join('\n');
 }
 
+// The storage format is already a clean string, so this is a simple assignment.
 function domainsStorageStringToTextarea(domainsStorageString) {
-    if (!domainsStorageString) return "";
-    return domainsStorageString.split(',').join('\n');
+    return domainsStorageString || "";
 }
 
 function updateCurrentSoundDisplay(fileName) {

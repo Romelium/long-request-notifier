@@ -48,28 +48,28 @@
     "description": "监控除黑名单域名外的所有域名的选项文本 (更常见的排除表达方式)。"
   },
   "whitelistLabel": {
-    "message": "白名单域名 (每行一个或用逗号分隔)：",
+    "message": "白名单模式 (正则表达式, 每行一个)：",
     "description": "白名单文本区域的标签。"
   },
   "whitelistInfo": {
-    "message": "若选择“仅监控白名单域名”，则仅监控这些域名（及其子域名）的请求。例如：<code>example.com</code> 会同时匹配 <code>example.com</code> 及 <code>api.example.com</code>。",
-    "description": "白名单的说明文字。"
+    "message": "若选择“仅监控白名单域名”，请求的主机名若匹配下方的任何一个正则表达式（每行一个，不区分大小写），该请求就会被监控。例如：<code>example\\.com</code> 会匹配包含 'example.com' 的主机名。",
+    "description": "白名单的说明文字，解释正则表达式的用法。"
   },
   "whitelistPlaceholder": {
-    "message": "例如：myapi.com\napi.service.net",
-    "description": "白名单文本区域的占位符。"
+    "message": "例如：myapi\\.com\n.*\\.service\\.net$",
+    "description": "白名单文本区域的占位符，包含正则表达式示例。"
   },
   "blacklistLabel": {
-    "message": "黑名单域名 (每行一个或用逗号分隔)：",
+    "message": "黑名单模式 (正则表达式, 每行一个)：",
     "description": "黑名单文本区域的标签。"
   },
   "blacklistInfo": {
-    "message": "若选择“监控所有域名 (黑名单域名除外)”，则将忽略对黑名单中域名（及其子域名）的请求。例如：<code>google-analytics.com</code>",
-    "description": "黑名单的说明文字。"
+    "message": "若选择“监控所有域名 (黑名单域名除外)”，请求的主机名若匹配下方的任何一个正则表达式（每行一个，不区分大小写），该请求就会被忽略。例如：<code>google-analytics\\.com</code>",
+    "description": "黑名单的说明文字，解释正则表达式的用法。"
   },
   "blacklistPlaceholder": {
-    "message": "例如：analytics.google.com\ntracking.server.net",
-    "description": "黑名单文本区域的占位符。"
+    "message": "例如：google-analytics\\.com\ntracking\\.server\\.net",
+    "description": "黑名单文本区域的占位符，包含正则表达式示例。"
   },
   "soundSettingsHeader": {
     "message": "声音设置",

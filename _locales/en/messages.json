@@ -48,28 +48,28 @@
     "description": "Option text for monitoring all except blacklisted domains."
   },
   "whitelistLabel": {
-    "message": "Whitelist Domains (one per line or comma-separated):",
+    "message": "Whitelist Patterns (RegEx, one per line):",
     "description": "Label for whitelist textarea."
   },
   "whitelistInfo": {
-    "message": "If 'Monitor Whitelisted Domains Only' is selected, only requests to these domains (and their subdomains) will be monitored. E.g., <code>example.com</code> will match <code>example.com</code> and <code>api.example.com</code>.",
-    "description": "Informational text for whitelist."
+    "message": "If 'Monitor Whitelisted Domains Only' is selected, requests will be monitored if their hostname matches any of the Regular Expression patterns below (one per line, case-insensitive). E.g., <code>example\\.com</code> will match hostnames containing 'example.com'.",
+    "description": "Informational text for whitelist explaining RegEx usage."
   },
   "whitelistPlaceholder": {
-    "message": "e.g., myapi.com\nspecific.service.net",
-    "description": "Placeholder for whitelist textarea."
+    "message": "e.g., myapi\\.com\n.*\\.service\\.net$",
+    "description": "Placeholder for whitelist textarea with RegEx examples."
   },
   "blacklistLabel": {
-    "message": "Blacklist Domains (one per line or comma-separated):",
+    "message": "Blacklist Patterns (RegEx, one per line):",
     "description": "Label for blacklist textarea."
   },
   "blacklistInfo": {
-    "message": "If 'Monitor All Except Blacklisted Domains' is selected, requests to these domains (and their subdomains) will be ignored. E.g., <code>google-analytics.com</code>",
-    "description": "Informational text for blacklist."
+    "message": "If 'Monitor All Except Blacklisted Domains' is selected, requests will be ignored if their hostname matches any of the Regular Expression patterns below (one per line, case-insensitive). E.g., <code>google-analytics\\.com</code>",
+    "description": "Informational text for blacklist explaining RegEx usage."
   },
   "blacklistPlaceholder": {
-    "message": "e.g., tracking.com\nads.server.net",
-    "description": "Placeholder for blacklist textarea."
+    "message": "e.g., tracking\\.com\nads\\.server\\.net",
+    "description": "Placeholder for blacklist textarea with RegEx examples."
   },
   "soundSettingsHeader": {
     "message": "Sound Settings",

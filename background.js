@@ -1,53 +1,73 @@
 const requestStartTimes = new Map();
+
+// These defaults reflect the STORAGE format. Domain lists are stored as newline-separated strings.
 const DEFAULT_SETTINGS = {
     longRequestThreshold: 10,
     domainFilterMode: "all",
-    whitelistDomains: [],
-    blacklistDomains: [],
+    whitelistDomains: "",
+    blacklistDomains: "",
     soundVolume: 0.7,
     customSoundDataUrl: null,
     customSoundFileName: null,
     showOsNotifications: false
 };
-let currentSettings = { ...DEFAULT_SETTINGS };
+
+// This holds the live, in-memory settings, with domains parsed into an array for efficient use.
+let currentSettings = {
+    longRequestThreshold: DEFAULT_SETTINGS.longRequestThreshold,
+    domainFilterMode: DEFAULT_SETTINGS.domainFilterMode,
+    whitelistDomains: [], // Parsed from string
+    blacklistDomains: [], // Parsed from string
+    soundVolume: DEFAULT_SETTINGS.soundVolume,
+    customSoundDataUrl: DEFAULT_SETTINGS.customSoundDataUrl,
+    customSoundFileName: DEFAULT_SETTINGS.customSoundFileName,
+    showOsNotifications: DEFAULT_SETTINGS.showOsNotifications
+};
 
 const notificationSound = new Audio();
 let lastSoundPlayTime = 0;
 const SOUND_COOLDOWN_MS = 3000;
 
+// Parses a newline-separated string of patterns into an array of strings.
 function parseDomainListFromString(domainString) {
     if (!domainString || typeof domainString !== 'string') return [];
-    return domainString.split(',').map(d => d.trim().toLowerCase()).filter(d => d.length > 0);
+    return domainString.split(/\r?\n/).map(d => d.trim()).filter(d => d.length > 0);
 }
 
 function updateSoundSource() {
+    notificationSound.volume = currentSettings.soundVolume;
     if (currentSettings.customSoundDataUrl) {
         notificationSound.src = currentSettings.customSoundDataUrl;
     } else {
         notificationSound.src = browser.runtime.getURL("sounds/notification.mp3");
     }
-    notificationSound.volume = currentSettings.soundVolume;
     notificationSound.load();
 }
 
 async function loadSettings() {
     try {
-        const result = await browser.storage.local.get(Object.keys(DEFAULT_SETTINGS));
-        currentSettings.longRequestThreshold = result.longRequestThreshold || DEFAULT_SETTINGS.longRequestThreshold;
-        currentSettings.domainFilterMode = result.domainFilterMode || DEFAULT_SETTINGS.domainFilterMode;
-        currentSettings.whitelistDomains = parseDomainListFromString(result.whitelistDomains);
-        currentSettings.blacklistDomains = parseDomainListFromString(result.blacklistDomains);
-        currentSettings.soundVolume = (typeof result.soundVolume === 'number') ? result.soundVolume : DEFAULT_SETTINGS.soundVolume;
-        currentSettings.customSoundDataUrl = result.customSoundDataUrl || null;
-        currentSettings.showOsNotifications = (typeof result.showOsNotifications === 'boolean') ? result.showOsNotifications : DEFAULT_SETTINGS.showOsNotifications;
+        const storedSettings = await browser.storage.local.get(DEFAULT_SETTINGS);
+
+        // Update live settings from stored values, with type checks and fallbacks.
+        currentSettings.longRequestThreshold = storedSettings.longRequestThreshold ?? DEFAULT_SETTINGS.longRequestThreshold;
+        currentSettings.domainFilterMode = storedSettings.domainFilterMode ?? DEFAULT_SETTINGS.domainFilterMode;
+        currentSettings.soundVolume = (typeof storedSettings.soundVolume === 'number') ? storedSettings.soundVolume : DEFAULT_SETTINGS.soundVolume;
+        currentSettings.customSoundDataUrl = storedSettings.customSoundDataUrl ?? null;
+        currentSettings.customSoundFileName = storedSettings.customSoundFileName ?? null;
+        currentSettings.showOsNotifications = (typeof storedSettings.showOsNotifications === 'boolean') ? storedSettings.showOsNotifications : DEFAULT_SETTINGS.showOsNotifications;
+
+        // Parse domain strings from storage into arrays for in-memory use.
+        currentSettings.whitelistDomains = parseDomainListFromString(storedSettings.whitelistDomains);
+        currentSettings.blacklistDomains = parseDomainListFromString(storedSettings.blacklistDomains);
 
         updateSoundSource();
         console.log("LNR: Settings loaded:", { ...currentSettings, customSoundDataUrl: currentSettings.customSoundDataUrl ? "Custom Sound Present" : null });
     } catch (error) {
         console.error(`LNR: Error loading settings: ${error}. Using defaults.`);
-        currentSettings = { ...DEFAULT_SETTINGS };
-        currentSettings.whitelistDomains = parseDomainListFromString(DEFAULT_SETTINGS.whitelistDomains);
-        currentSettings.blacklistDomains = parseDomainListFromString(DEFAULT_SETTINGS.blacklistDomains);
+        // Reset to defaults on error.
+        Object.assign(currentSettings, DEFAULT_SETTINGS);
+        currentSettings.whitelistDomains = [];
+        currentSettings.blacklistDomains = [];
         updateSoundSource();
     }
 }
@@ -57,35 +77,36 @@ browser.storage.onChanged.addListener((changes, areaName) => {
         let settingsChanged = false;
         let soundSettingsChanged = false;
 
-        if (changes.longRequestThreshold) {
-            currentSettings.longRequestThreshold = changes.longRequestThreshold.newValue || DEFAULT_SETTINGS.longRequestThreshold;
+        for (const [key, { newValue }] of Object.entries(changes)) {
             settingsChanged = true;
-        }
-        if (changes.domainFilterMode) {
-            currentSettings.domainFilterMode = changes.domainFilterMode.newValue || DEFAULT_SETTINGS.domainFilterMode;
-            settingsChanged = true;
-        }
-        if (changes.whitelistDomains) {
-            currentSettings.whitelistDomains = parseDomainListFromString(changes.whitelistDomains.newValue);
-            settingsChanged = true;
-        }
-        if (changes.blacklistDomains) {
-            currentSettings.blacklistDomains = parseDomainListFromString(changes.blacklistDomains.newValue);
-            settingsChanged = true;
-        }
-        if (changes.soundVolume) {
-            currentSettings.soundVolume = (typeof changes.soundVolume.newValue === 'number') ? changes.soundVolume.newValue : DEFAULT_SETTINGS.soundVolume;
-            soundSettingsChanged = true;
-            settingsChanged = true;
-        }
-        if (changes.customSoundDataUrl) {
-            currentSettings.customSoundDataUrl = changes.customSoundDataUrl.newValue || null;
-            soundSettingsChanged = true;
-            settingsChanged = true;
-        }
-        if (changes.showOsNotifications) {
-            currentSettings.showOsNotifications = (typeof changes.showOsNotifications.newValue === 'boolean') ? changes.showOsNotifications.newValue : DEFAULT_SETTINGS.showOsNotifications;
-            settingsChanged = true;
+            switch (key) {
+                case 'longRequestThreshold':
+                    currentSettings.longRequestThreshold = newValue ?? DEFAULT_SETTINGS.longRequestThreshold;
+                    break;
+                case 'domainFilterMode':
+                    currentSettings.domainFilterMode = newValue ?? DEFAULT_SETTINGS.domainFilterMode;
+                    break;
+                case 'whitelistDomains':
+                    currentSettings.whitelistDomains = parseDomainListFromString(newValue ?? "");
+                    break;
+                case 'blacklistDomains':
+                    currentSettings.blacklistDomains = parseDomainListFromString(newValue ?? "");
+                    break;
+                case 'soundVolume':
+                    currentSettings.soundVolume = (typeof newValue === 'number') ? newValue : DEFAULT_SETTINGS.soundVolume;
+                    soundSettingsChanged = true;
+                    break;
+                case 'customSoundDataUrl':
+                    currentSettings.customSoundDataUrl = newValue ?? null;
+                    soundSettingsChanged = true;
+                    break;
+                case 'customSoundFileName':
+                    currentSettings.customSoundFileName = newValue ?? null;
+                    break;
+                case 'showOsNotifications':
+                    currentSettings.showOsNotifications = (typeof newValue === 'boolean') ? newValue : DEFAULT_SETTINGS.showOsNotifications;
+                    break;
+            }
         }
 
         if (soundSettingsChanged) {
@@ -97,14 +118,24 @@ browser.storage.onChanged.addListener((changes, areaName) => {
     }
 });
 
-function isDomainMatch(hostname, domainList) {
+function isDomainMatch(hostname, domainPatternList) {
     if (!hostname) return false;
-    const lowerHostname = hostname.toLowerCase();
-    return domainList.some(domain => lowerHostname === domain || lowerHostname.endsWith("." + domain));
+    for (const pattern of domainPatternList) {
+        if (!pattern) continue;
+        try {
+            const regex = new RegExp(pattern, 'i');
+            if (regex.test(hostname)) {
+                return true;
+            }
+        } catch (e) {
+            console.error(`LNR: Invalid regex in domain list: "${pattern}". Error: ${e}`);
+        }
+    }
+    return false;
 }
 
 function shouldMonitorRequest(urlString) {
-    if (!urlString || (!urlString.startsWith("http:") && !urlString.startsWith("https:")) ) {
+    if (!urlString || (!urlString.startsWith("http:") && !urlString.startsWith("https:"))) {
         return false;
     }
     let hostname;
@@ -125,10 +156,7 @@ function shouldMonitorRequest(urlString) {
 
 browser.webRequest.onBeforeRequest.addListener(
     (details) => {
-        if (details.tabId === -1) {
-            return;
-        }
-        if (!shouldMonitorRequest(details.url)) {
+        if (details.tabId === -1 || !shouldMonitorRequest(details.url)) {
             return;
         }
         if (details.type === "main_frame" || details.type === "xmlhttprequest" || details.type === "fetch") {

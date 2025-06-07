@@ -39,7 +39,7 @@ function updateSoundSource() {
     if (currentSettings.customSoundDataUrl) {
         notificationSound.src = currentSettings.customSoundDataUrl;
     } else {
-        notificationSound.src = browser.runtime.getURL("sounds/notification.mp3");
+        notificationSound.src = browser.runtime.getURL("sounds/notification.wav");
     }
     notificationSound.load();
 }
